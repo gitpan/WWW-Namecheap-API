@@ -10,13 +10,9 @@ use Data::Dumper();
 
 WWW::Namecheap::Domain - Namecheap API domain methods
 
-=head1 VERSION
-
-Version 0.02
-
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
@@ -132,7 +128,7 @@ Example:
           StateProvince => 'SD',
           StateProvinceChoice => 'S', # for 'State' or 'P' for 'Province'
           PostalCode => '12345',
-          Country => 'USA',
+          Country => 'US',
           Phone => '+1.2025551212',
           Fax => '+1.2025551212', # optional
           EmailAddress => 'foo@example.com',
@@ -254,9 +250,13 @@ sub list {
             last;
         }
         
-        #print STDERR Data::Dumper::Dumper \$xml;
-        
-        push(@domains, @{$xml->{CommandResponse}->{DomainGetListResult}->{Domain}});
+        if (ref($xml->{CommandResponse}->{DomainGetListResult}->{Domain}) eq 'ARRAY') {
+            push(@domains, @{$xml->{CommandResponse}->{DomainGetListResult}->{Domain}});
+        } elsif (ref($xml->{CommandResponse}->{DomainGetListResult}->{Domain}) eq 'HASH') {
+            push(@domains, $xml->{CommandResponse}->{DomainGetListResult}->{Domain});
+        } else {
+            Carp::carp('Unexpected XML in CommandResponse->DomainGetListResult->Domain!');
+        }
         if ($xml->{CommandResponse}->{Paging}->{TotalItems} <= ($request{Page} * $request{PageSize})) {
             last;
         } else {
