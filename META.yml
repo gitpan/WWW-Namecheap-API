@@ -17,10 +17,10 @@ name: WWW-Namecheap-API
 provides:
   WWW::Namecheap::API:
     file: lib/WWW/Namecheap/API.pm
-    version: 0.03
+    version: 0.04
   WWW::Namecheap::DNS:
     file: lib/WWW/Namecheap/DNS.pm
-    version: 0.03
+    version: 0.04
   WWW::Namecheap::Domain:
     file: lib/WWW/Namecheap/Domain.pm
     version: 0.03
@@ -41,4 +41,4 @@ requires:
   perl: 5.006
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.03
+version: 0.04
