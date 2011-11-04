@@ -17,22 +17,22 @@ name: WWW-Namecheap-API
 provides:
   WWW::Namecheap::API:
     file: lib/WWW/Namecheap/API.pm
-    version: 0.04
+    version: 0.05
   WWW::Namecheap::DNS:
     file: lib/WWW/Namecheap/DNS.pm
-    version: 0.04
+    version: 0.05
   WWW::Namecheap::Domain:
     file: lib/WWW/Namecheap/Domain.pm
-    version: 0.03
+    version: 0.05
   WWW::Namecheap::NS:
     file: lib/WWW/Namecheap/NS.pm
-    version: 0.03
+    version: 0.05
   WWW::Namecheap::SSL:
     file: lib/WWW/Namecheap/SSL.pm
-    version: 0.03
+    version: 0.05
   WWW::Namecheap::User:
     file: lib/WWW/Namecheap/User.pm
-    version: 0.03
+    version: 0.05
 requires:
   LWP::Protocol::https: 0
   LWP::UserAgent: 0
@@ -41,4 +41,4 @@ requires:
   perl: 5.006
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05
